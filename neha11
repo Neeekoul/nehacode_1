@@ -1,0 +1,19 @@
+﻿thin-client-project/
+├── backend/
+│   ├── app.py
+│   ├── config.py
+│   ├── requirements.txt
+│   ├── routes/
+│   │   └── dashboard.py
+│   └── services/
+│       └── dashboard_service.py
+│
+└── mobile/
+    ├── App.tsx
+    ├── src/
+    │   ├── api/
+    │   │   └── client.ts
+    │   ├── screens/
+    │   │   └── DashboardScreen.tsx
+    │   └── types/
+    │       └── api.ts

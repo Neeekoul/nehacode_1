@@ -1,0 +1,38 @@
+def build_dashboard(user_id: str):
+    """
+    ALL BUSINESS LOGIC IS HERE
+    """
+
+    is_admin = user_id == "admin"
+
+    return {
+        "screen": "dashboard",
+        "title": "Server Driven Dashboard",
+        "actions": [
+            {
+                "id": "create",
+                "label": "Create Item",
+                "enabled": is_admin
+            },
+            {
+                "id": "refresh",
+                "label": "Refresh",
+                "enabled": True
+            }
+        ],
+        "items": [
+            {
+                "id": 1,
+                "name": "Item Alpha",
+                "status": "locked" if not is_admin else "editable"
+            },
+            {
+                "id": 2,
+                "name": "Item Beta",
+                "status": "locked"
+            }
+        ],
+        "meta": {
+            "can_edit": is_admin
+        }
+    }

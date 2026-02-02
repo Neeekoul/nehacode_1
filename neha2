@@ -1,0 +1,14 @@
+﻿backend/
+├── app.py
+├── config.py
+├── extensions.py
+├── models/
+│   └── user.py
+├── routes/
+│   ├── auth.py
+│   └── feature.py
+├── services/
+│   └── feature_service.py   # BUSINESS LOGIC LIVES HERE
+├── schemas/
+│   └── feature_schema.py
+└── requirements.txt

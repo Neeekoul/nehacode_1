@@ -1,0 +1,17 @@
+{
+  "title": "Dashboard",
+  "actions": [
+    {
+      "id": "create_item",
+      "label": "Create Item",
+      "enabled": true
+    }
+  ],
+  "items": [
+    {
+      "id": 1,
+      "name": "Item A",
+      "status": "locked"
+    }
+  ]
+}

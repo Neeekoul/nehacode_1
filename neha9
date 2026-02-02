@@ -1,0 +1,38 @@
+import React, { useEffect, useState } from "react";
+import { View, Text, Button, FlatList } from "react-native";
+import { fetchDashboard } from "../api/client";
+
+export default function DashboardScreen() {
+  const [data, setData] = useState<any>(null);
+
+  useEffect(() => {
+    fetchDashboard().then(setData).catch(console.error);
+  }, []);
+
+  if (!data) {
+    return <Text>Loading...</Text>;
+  }
+
+  return (
+    <View>
+      <Text>{data.title}</Text>
+
+      {data.actions.map((action: any) => (
+        <Button
+          key={action.id}
+          title={action.label}
+          disabled={!action.enabled}
+          onPress={() => {}}
+        />
+      ))}
+
+      <FlatList
+        data={data.items}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <Text>{item.name} — {item.status}</Text>
+        )}
+      />
+    </View>
+  );
+}

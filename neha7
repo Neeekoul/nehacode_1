@@ -1,0 +1,11 @@
+﻿mobile/
+├── src/
+│   ├── api/
+│   │   └── client.ts
+│   ├── screens/
+│   │   └── DashboardScreen.tsx
+│   ├── components/
+│   │   └── ActionButton.tsx
+│   └── types/
+│       └── api.ts
+└── App.tsx

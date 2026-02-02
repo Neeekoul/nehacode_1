@@ -1,0 +1,21 @@
+def get_dashboard_data(user_id):
+    # ALL business logic lives here
+    can_create = user_id == "admin"
+
+    return {
+        "title": "Dashboard",
+        "actions": [
+            {
+                "id": "create_item",
+                "label": "Create Item",
+                "enabled": can_create
+            }
+        ],
+        "items": [
+            {
+                "id": 1,
+                "name": "Item A",
+                "status": "locked"
+            }
+        ]
+    }

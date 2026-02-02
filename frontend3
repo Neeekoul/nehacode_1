@@ -1,0 +1,17 @@
+import { DashboardResponse } from "../types/api";
+
+const API_URL = "http://localhost:5000/api";
+
+export async function getDashboard(): Promise<DashboardResponse> {
+  const res = await fetch(`${API_URL}/dashboard`, {
+    headers: {
+      "X-USER-ID": "admin" // change to "guest" to see server logic change UI
+    }
+  });
+
+  if (!res.ok) {
+    throw new Error("Server error");
+  }
+
+  return res.json();
+}

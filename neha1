@@ -1,0 +1,17 @@
+[ React Native App ]
+- Screens
+- Components
+- API client
+- State (server-driven)
+
+        |
+        | HTTPS (JSON)
+        v
+
+[ Flask Backend ]
+- Authentication
+- Validation
+- Business rules
+- Database
+- Authorization
+- Error handling

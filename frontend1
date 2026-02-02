@@ -1,0 +1,3 @@
+npx create-expo-app mobile --template expo-template-blank-typescript
+cd mobile
+npm start

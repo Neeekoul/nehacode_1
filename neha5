@@ -1,0 +1,10 @@
+from flask import Blueprint, jsonify, request
+from services.feature_service import get_dashboard_data
+
+feature_bp = Blueprint("feature", __name__)
+
+@feature_bp.route("/dashboard", methods=["GET"])
+def dashboard():
+    user_id = request.headers.get("X-User-ID")
+    data = get_dashboard_data(user_id)
+    return jsonify(data)

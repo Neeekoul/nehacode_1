@@ -1,0 +1,17 @@
+from flask import Flask
+from flask_cors import CORS
+from routes.dashboard import dashboard_bp
+
+def create_app():
+    app = Flask(__name__)
+    app.config.from_object("config.Config")
+
+    CORS(app)  # allow mobile app to call backend
+    app.register_blueprint(dashboard_bp, url_prefix="/api")
+
+    return app
+
+app = create_app()
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)

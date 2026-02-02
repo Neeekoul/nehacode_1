@@ -1,0 +1,52 @@
+import React, { useEffect, useState } from "react";
+import { View, Text, Button, FlatList, StyleSheet } from "react-native";
+import { getDashboard } from "../api/client";
+import { DashboardResponse } from "../types/api";
+
+export default function DashboardScreen() {
+  const [data, setData] = useState<DashboardResponse | null>(null);
+
+  useEffect(() => {
+    getDashboard()
+      .then(setData)
+      .catch(console.error);
+  }, []);
+
+  if (!data) {
+    return <Text>Loading...</Text>;
+  }
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>{data.title}</Text>
+
+      {data.actions.map(action => (
+        <Button
+          key={action.id}
+          title={action.label}
+          disabled={!action.enabled}
+          onPress={() => {
+            // UI only — no logic here
+            console.log(`Action pressed: ${action.id}`);
+          }}
+        />
+      ))}
+
+      <FlatList
+        data={data.items}
+        keyExtractor={item => item.id.toString()}
+        renderItem={({ item }) => (
+          <Text style={styles.item}>
+            {item.name} — {item.status}
+          </Text>
+        )}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { padding: 20 },
+  title: { fontSize: 24, marginBottom: 10 },
+  item: { padding: 10 }
+});
